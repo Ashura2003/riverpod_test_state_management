@@ -19,14 +19,14 @@ class CounterViewState extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          ref.read(
+          ref.read( // reads the value of the provider and does not change the value once read
             appBarTitleProvider,
           ),
         ),
       ),
       body: Center(
         child: Text(
-          ref.watch(counterProvider).toString(),
+          ref.watch(counterProvider).toString(), // reads the value of the provider and rebuilds the widget when the value changes
           style: const TextStyle(
             fontSize: 40,
           ),
@@ -37,7 +37,7 @@ class CounterViewState extends ConsumerWidget {
         children: [
           FloatingActionButton(
             onPressed: () {
-              ref.read(counterProvider.notifier).state++;
+              ref.read(counterProvider.notifier).state++; // reads the value of the provider and changes the value
             },
             child: const Icon(Icons.add),
           ),
@@ -46,8 +46,8 @@ class CounterViewState extends ConsumerWidget {
           ),
           FloatingActionButton(
             onPressed: () {
-              if (ref.read(counterProvider) > 0) {
-                ref.read(counterProvider.notifier).state--;
+              if (ref.read(counterProvider) > 0) { // check if the current state is greater than 0
+                ref.read(counterProvider.notifier).state--; // reads the value of the provider and changes the value
               }
             },
             child: const Icon(Icons.remove),
