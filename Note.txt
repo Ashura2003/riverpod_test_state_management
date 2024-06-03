@@ -1,0 +1,6 @@
+Used for Primitive Data Types
+
+Providers are Immutable (value cannot be changed)
+State Providers are Mutable (.notifier is required in order to change the State)
+
+StateNotifierProvider is used for complex data types like classes and others.
